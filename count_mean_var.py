@@ -43,20 +43,20 @@ def count_kind_num(path,kind_choose):
 	f.close()
 	return dates,nums,kind,date
 
-def draw_pic(i,mean,kind):
+def draw_pic(i,mean,kind_choose):
 	plt.figure()
 	#plt.plot(i,mean)
 	plt.grid(True) #增加格点
 	plt.xlabel('month')
 	plt.ylabel('mean')
-	plt.title("mean of flavor" + kind)
+	plt.title("mean of flavor" + kind_choose)
 	plt.plot(i,mean,'b',lw = 1.5) # 蓝色的线
 	plt.plot(i,mean,'ro') #离散的点
 	plt.show()
+	#plt.savefig('pic/' + 'mean' + '/' + 'flavor' + kind_choose + ".jpg")
 
 def mean_of_month(kind_choose,mean):
 	for i in range(1,6):
-		print(i)
 		path = "数据/data" + str(i) + ".txt"
 		[dates,nums,kind,date] = count_kind_num(path,kind_choose)
 		mean.append(sum(nums)/len(dates))
@@ -65,7 +65,7 @@ def mean_of_month(kind_choose,mean):
 for i in range(1,16) :
 	mean = []
 	mean = mean_of_month(str(i),mean)
-	print(mean)
+	#print(mean)
 	draw_pic([1,2,3,4,5],mean,str(i))
 
 

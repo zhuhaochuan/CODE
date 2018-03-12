@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-f = open("data.txt")
+f = open("数据/data1.txt")
 
 line = f.readline()
 
@@ -50,5 +50,5 @@ for each in date:
 
 f.close()
 plt.figure()
-plt.plot(dates,nums)
+plt.plot(nums)
 plt.show()

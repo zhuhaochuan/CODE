@@ -52,18 +52,15 @@ def draw_pic(dates,nums,month,kind_choose):
 	plt.xlabel('dates')
 	plt.ylabel('nums')
 	plt.title(month + '-flavor' + kind_choose)
+	plt.plot(dates,nums,'b',lw = 1.5) # 蓝色的线
+	plt.plot(dates,nums,'ro') #离散的点
 	plt.show()
+	#plt.savefig('pic/' + month + '/' + month + '-flavor' + kind_choose + ".jpg")
 
-path = "数据/data2.txt"
-month = '2015-01'
-#kind_choose = '2'
-
-#[dates,nums] = count_kind_num(path,month,kind_choose)
-#draw_pic(dates,nums,month,kind_choose)
+path = "数据/data5.txt"
+month = '2015-05'
 
 for i in range(1,16):
 	[dates,nums] = count_kind_num(path,month,kind_choose = str(i))
-	#draw_pic(dates,nums,month,kind_choose = str(i))
-	print(sum(nums))
-	#print(len(dates))
-	print(sum(nums)/len(dates))
+	draw_pic(dates,nums,month,kind_choose = str(i))
+	#plt.savefig('test.png') # 保存图片
